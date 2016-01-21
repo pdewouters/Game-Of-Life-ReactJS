@@ -1,0 +1,19 @@
+.gol-app {
+    box-sizing: border-box;
+}
+
+.default {
+    width: 360px;
+    height: 360px;
+}
+.gol-cell {
+    border: 1px solid silver;
+    background-color: black;
+    width: 100px;
+    height: 100px;
+    float:left;
+}
+
+.gol-cell.live {
+    background-color:red;
+}
