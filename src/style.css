@@ -3,14 +3,14 @@
 }
 
 .default {
-    width: 360px;
-    height: 360px;
+    width: 700px;
+    height: 500px;
 }
 .gol-cell {
     border: 1px solid silver;
     background-color: black;
-    width: 100px;
-    height: 100px;
+    width: 8px;
+    height: 8px;
     float:left;
 }
 
