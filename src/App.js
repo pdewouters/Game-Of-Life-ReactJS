@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Cell from './Cell'
 import _ from 'underscore'
 
 export default class App extends Component {
@@ -33,8 +32,9 @@ export default class App extends Component {
         }
     }
 
-    toggleCell(){
-        cell.status = cell.status === 'live' ? 'dead' : 'live'
+    toggleCell(row,col){ console.log(row)
+        this.state.rows[row][col] = 'live'
+        this.setState({rows:this.state.rows})
     }
 
     initGrid(){
@@ -93,12 +93,15 @@ export default class App extends Component {
 
         this.setState({rows:this.state.rows,generations: this.state.generations + 1})
     }
-
+    handleCellClick(row,col,e){
+        e.preventDefault()
+        this.toggleCell(row,col)
+    }
     render(){
         let cells = []
         this.state.rows.forEach((row, rowIdx)=>{
             row.forEach((cell, cellIdx)=> {
-                cells.push(<div onClick={this.toggleCell} key={'cell-' + rowIdx + '-' + cellIdx} className={'gol-cell ' + cell}></div>)
+                cells.push(<div onClick={this.handleCellClick.bind(this,rowIdx,cellIdx)} key={'cell-' + rowIdx + '-' + cellIdx} className={'gol-cell ' + cell}></div>)
             })
         })
 
